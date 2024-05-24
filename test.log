@@ -1,0 +1,1500 @@
+-------------------------------------------------
+-- Conan Install for 'tc131' profile        --
+
+======== Input profiles ========
+Profile host:
+[settings]
+arch=tc131
+build_type=Release
+compiler=gcc
+compiler.cppstd=20
+compiler.libcxx=libstdc++11
+compiler.version=11
+os=baremetal
+[options]
+*:fPIC=False
+*:shared=False
+[conf]
+tools.build:compiler_executables={'c': 'tricore-elf-gcc', 'cpp': 'tricore-elf-g++'}
+tools.cmake.cmake_layout:build_folder=build/tc131
+tools.cmake.cmaketoolchain:generator=Ninja Multi-Config
+
+Profile build:
+[settings]
+arch=x86_64
+build_type=Release
+compiler=gcc
+compiler.cppstd=gnu17
+compiler.libcxx=libstdc++11
+compiler.version=11
+os=Linux
+
+
+======== Computing dependency graph ========
+Graph root
+    conanfile.py (foo/1.0): /home/chipc/workspaces/conan-tricore-test/conanfile.py
+Requirements
+    zlib/1.2.13#4e74ebf1361fe6fb60326f473f276eb5 - Cache
+
+======== Computing necessary packages ========
+zlib/1.2.13: Forced build from source
+Requirements
+    zlib/1.2.13#4e74ebf1361fe6fb60326f473f276eb5:565fe700c6b39e14512692b993db8e56c6554f00 - Build
+
+======== Installing packages ========
+
+-------- Installing package zlib/1.2.13 (1 of 1) --------
+zlib/1.2.13: Building from source
+zlib/1.2.13: Package zlib/1.2.13:565fe700c6b39e14512692b993db8e56c6554f00
+zlib/1.2.13: Copying sources to build folder
+zlib/1.2.13: Building your package in /home/chipc/.conan2/p/b/zlib1df0cf6ab80c3/b
+zlib/1.2.13: Calling generate()
+zlib/1.2.13: Generators folder: /home/chipc/.conan2/p/b/zlib1df0cf6ab80c3/b/build/generators
+zlib/1.2.13: CMakeToolchain generated: conan_toolchain.cmake
+zlib/1.2.13: CMakeToolchain generated: /home/chipc/.conan2/p/b/zlib1df0cf6ab80c3/b/build/generators/CMakePresets.json
+zlib/1.2.13: CMakeToolchain generated: /home/chipc/.conan2/p/b/zlib1df0cf6ab80c3/b/src/CMakeUserPresets.json
+zlib/1.2.13: Generating aggregated env files
+zlib/1.2.13: Generated aggregated env files: ['conanbuild.sh', 'conanrun.sh']
+zlib/1.2.13: Calling build()
+zlib/1.2.13: Apply patch (conan): separate static/shared builds, disable debug suffix, disable building examples
+zlib/1.2.13: Running CMake.configure()
+zlib/1.2.13: RUN: cmake -G "Ninja Multi-Config" -DCMAKE_TOOLCHAIN_FILE="generators/conan_toolchain.cmake" -DCMAKE_INSTALL_PREFIX="/home/chipc/.conan2/p/b/zlib1df0cf6ab80c3/p" -DCMAKE_POLICY_DEFAULT_CMP0091="NEW" "/home/chipc/.conan2/p/b/zlib1df0cf6ab80c3/b/src"
+CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+-- Using Conan toolchain: /home/chipc/.conan2/p/b/zlib1df0cf6ab80c3/b/build/generators/conan_toolchain.cmake
+-- Conan toolchain: Setting CMAKE_POSITION_INDEPENDENT_CODE=OFF (options.fPIC)
+-- Conan toolchain: Setting BUILD_SHARED_LIBS = OFF
+-- The C compiler identification is GNU 11.3.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /home/chipc/.conan2/p/b/tricoe43a847349e11/p/tricore-elf/bin/tricore-elf-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for stddef.h
+-- Looking for stddef.h - found
+-- Check size of off64_t
+-- Check size of off64_t - failed
+-- Looking for fseeko
+-- Looking for fseeko - found
+-- Looking for unistd.h
+-- Looking for unistd.h - found
+-- Renaming
+--     /home/chipc/.conan2/p/b/zlib1df0cf6ab80c3/b/src/zconf.h
+-- to 'zconf.h.included' because this file is included with zlib
+-- but CMake generates it automatically in the build directory.
+-- Configuring done (0.6s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/chipc/.conan2/p/b/zlib1df0cf6ab80c3/b/build
+
+zlib/1.2.13: Running CMake.build()
+zlib/1.2.13: RUN: cmake --build "/home/chipc/.conan2/p/b/zlib1df0cf6ab80c3/b/build" --config Release -- -j24
+[1/16] Building C object CMakeFiles/zlib.dir/Release/zutil.c.obj
+[2/16] Building C object CMakeFiles/zlib.dir/Release/gzclose.c.obj
+[3/16] Building C object CMakeFiles/zlib.dir/Release/uncompr.c.obj
+[4/16] Building C object CMakeFiles/zlib.dir/Release/compress.c.obj
+[5/16] Building C object CMakeFiles/zlib.dir/Release/adler32.c.obj
+[6/16] Building C object CMakeFiles/zlib.dir/Release/inftrees.c.obj
+[7/16] Building C object CMakeFiles/zlib.dir/Release/crc32.c.obj
+[8/16] Building C object CMakeFiles/zlib.dir/Release/inffast.c.obj
+[9/16] Building C object CMakeFiles/zlib.dir/Release/gzwrite.c.obj
+[10/16] Building C object CMakeFiles/zlib.dir/Release/gzlib.c.obj
+[11/16] Building C object CMakeFiles/zlib.dir/Release/gzread.c.obj
+[12/16] Building C object CMakeFiles/zlib.dir/Release/infback.c.obj
+[13/16] Building C object CMakeFiles/zlib.dir/Release/trees.c.obj
+[14/16] Building C object CMakeFiles/zlib.dir/Release/inflate.c.obj
+[15/16] Building C object CMakeFiles/zlib.dir/Release/deflate.c.obj
+[16/16] Linking C static library Release/libz.a
+
+zlib/1.2.13: Package '565fe700c6b39e14512692b993db8e56c6554f00' built
+zlib/1.2.13: Build folder /home/chipc/.conan2/p/b/zlib1df0cf6ab80c3/b/build
+zlib/1.2.13: Generating the package
+zlib/1.2.13: Packaging in folder /home/chipc/.conan2/p/b/zlib1df0cf6ab80c3/p
+zlib/1.2.13: Calling package()
+zlib/1.2.13: Running CMake.install()
+zlib/1.2.13: RUN: cmake --install "/home/chipc/.conan2/p/b/zlib1df0cf6ab80c3/b/build" --config Release --prefix "/home/chipc/.conan2/p/b/zlib1df0cf6ab80c3/p"
+-- Installing: /home/chipc/.conan2/p/b/zlib1df0cf6ab80c3/p/lib/libz.a
+-- Installing: /home/chipc/.conan2/p/b/zlib1df0cf6ab80c3/p/include/zconf.h
+-- Installing: /home/chipc/.conan2/p/b/zlib1df0cf6ab80c3/p/include/zlib.h
+
+zlib/1.2.13: package(): Packaged 1 file: LICENSE
+zlib/1.2.13: package(): Packaged 1 '.a' file: libz.a
+zlib/1.2.13: package(): Packaged 2 '.h' files: zconf.h, zlib.h
+zlib/1.2.13: Created package revision 693d6efb29e3e91cec910f40b8b74be6
+zlib/1.2.13: Package '565fe700c6b39e14512692b993db8e56c6554f00' created
+zlib/1.2.13: Full package reference: zlib/1.2.13#4e74ebf1361fe6fb60326f473f276eb5:565fe700c6b39e14512692b993db8e56c6554f00#693d6efb29e3e91cec910f40b8b74be6
+zlib/1.2.13: Package folder /home/chipc/.conan2/p/b/zlib1df0cf6ab80c3/p
+WARN: deprecated: Usage of deprecated Conan 1.X features that will be removed in Conan 2.X:
+WARN: deprecated:     'cpp_info.names' used in: zlib/1.2.13
+
+======== Finalizing install (deploy, generators) ========
+conanfile.py (foo/1.0): Writing generators to /home/chipc/workspaces/conan-tricore-test/build/tc131/generators
+conanfile.py (foo/1.0): Generator 'CMakeDeps' calling 'generate()'
+conanfile.py (foo/1.0): CMakeDeps necessary find_package() and targets for your CMakeLists.txt
+    find_package(ZLIB)
+    target_link_libraries(... ZLIB::ZLIB)
+conanfile.py (foo/1.0): Calling generate()
+conanfile.py (foo/1.0): Generators folder: /home/chipc/workspaces/conan-tricore-test/build/tc131/generators
+conanfile.py (foo/1.0): CMakeToolchain generated: conan_toolchain.cmake
+conanfile.py (foo/1.0): CMakeToolchain: Preset 'conan-default' added to CMakePresets.json.
+    (cmake>=3.23) cmake --preset conan-default
+    (cmake<3.23) cmake <path> -G "Ninja Multi-Config" -DCMAKE_TOOLCHAIN_FILE=generators/conan_toolchain.cmake  -DCMAKE_POLICY_DEFAULT_CMP0091=NEW
+conanfile.py (foo/1.0): CMakeToolchain generated: /home/chipc/workspaces/conan-tricore-test/build/tc131/generators/CMakePresets.json
+conanfile.py (foo/1.0): Generating aggregated env files
+conanfile.py (foo/1.0): Generated aggregated env files: ['conanbuild.sh', 'conanrun.sh']
+Install finished successfully
+
+======== Input profiles ========
+Profile host:
+[settings]
+arch=tc131
+build_type=Debug
+compiler=gcc
+compiler.cppstd=20
+compiler.libcxx=libstdc++11
+compiler.version=11
+os=baremetal
+[options]
+*:fPIC=False
+*:shared=False
+[conf]
+tools.build:compiler_executables={'c': 'tricore-elf-gcc', 'cpp': 'tricore-elf-g++'}
+tools.cmake.cmake_layout:build_folder=build/tc131
+tools.cmake.cmaketoolchain:generator=Ninja Multi-Config
+
+Profile build:
+[settings]
+arch=x86_64
+build_type=Release
+compiler=gcc
+compiler.cppstd=gnu17
+compiler.libcxx=libstdc++11
+compiler.version=11
+os=Linux
+
+
+======== Computing dependency graph ========
+Graph root
+    conanfile.py (foo/1.0): /home/chipc/workspaces/conan-tricore-test/conanfile.py
+Requirements
+    zlib/1.2.13#4e74ebf1361fe6fb60326f473f276eb5 - Cache
+
+======== Computing necessary packages ========
+zlib/1.2.13: Forced build from source
+Requirements
+    zlib/1.2.13#4e74ebf1361fe6fb60326f473f276eb5:a3f16d7dbf3a57d3c8b63adde606ae668866e780 - Build
+
+======== Installing packages ========
+
+-------- Installing package zlib/1.2.13 (1 of 1) --------
+zlib/1.2.13: Building from source
+zlib/1.2.13: Package zlib/1.2.13:a3f16d7dbf3a57d3c8b63adde606ae668866e780
+zlib/1.2.13: Copying sources to build folder
+zlib/1.2.13: Building your package in /home/chipc/.conan2/p/b/zlib133eb0cd6650b/b
+zlib/1.2.13: Calling generate()
+zlib/1.2.13: Generators folder: /home/chipc/.conan2/p/b/zlib133eb0cd6650b/b/build/generators
+zlib/1.2.13: CMakeToolchain generated: conan_toolchain.cmake
+zlib/1.2.13: CMakeToolchain generated: /home/chipc/.conan2/p/b/zlib133eb0cd6650b/b/build/generators/CMakePresets.json
+zlib/1.2.13: CMakeToolchain generated: /home/chipc/.conan2/p/b/zlib133eb0cd6650b/b/src/CMakeUserPresets.json
+zlib/1.2.13: Generating aggregated env files
+zlib/1.2.13: Generated aggregated env files: ['conanbuild.sh', 'conanrun.sh']
+zlib/1.2.13: Calling build()
+zlib/1.2.13: Apply patch (conan): separate static/shared builds, disable debug suffix, disable building examples
+zlib/1.2.13: Running CMake.configure()
+zlib/1.2.13: RUN: cmake -G "Ninja Multi-Config" -DCMAKE_TOOLCHAIN_FILE="generators/conan_toolchain.cmake" -DCMAKE_INSTALL_PREFIX="/home/chipc/.conan2/p/b/zlib133eb0cd6650b/p" -DCMAKE_POLICY_DEFAULT_CMP0091="NEW" "/home/chipc/.conan2/p/b/zlib133eb0cd6650b/b/src"
+CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+-- Using Conan toolchain: /home/chipc/.conan2/p/b/zlib133eb0cd6650b/b/build/generators/conan_toolchain.cmake
+-- Conan toolchain: Setting CMAKE_POSITION_INDEPENDENT_CODE=OFF (options.fPIC)
+-- Conan toolchain: Setting BUILD_SHARED_LIBS = OFF
+-- The C compiler identification is GNU 11.3.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /home/chipc/.conan2/p/b/tricoe43a847349e11/p/tricore-elf/bin/tricore-elf-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for stddef.h
+-- Looking for stddef.h - found
+-- Check size of off64_t
+-- Check size of off64_t - failed
+-- Looking for fseeko
+-- Looking for fseeko - found
+-- Looking for unistd.h
+-- Looking for unistd.h - found
+-- Renaming
+--     /home/chipc/.conan2/p/b/zlib133eb0cd6650b/b/src/zconf.h
+-- to 'zconf.h.included' because this file is included with zlib
+-- but CMake generates it automatically in the build directory.
+-- Configuring done (0.6s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/chipc/.conan2/p/b/zlib133eb0cd6650b/b/build
+
+zlib/1.2.13: Running CMake.build()
+zlib/1.2.13: RUN: cmake --build "/home/chipc/.conan2/p/b/zlib133eb0cd6650b/b/build" --config Debug -- -j24
+[1/16] Building C object CMakeFiles/zlib.dir/Debug/compress.c.obj
+[2/16] Building C object CMakeFiles/zlib.dir/Debug/uncompr.c.obj
+[3/16] Building C object CMakeFiles/zlib.dir/Debug/zutil.c.obj
+[4/16] Building C object CMakeFiles/zlib.dir/Debug/gzclose.c.obj
+[5/16] Building C object CMakeFiles/zlib.dir/Debug/inftrees.c.obj
+[6/16] Building C object CMakeFiles/zlib.dir/Debug/inffast.c.obj
+[7/16] Building C object CMakeFiles/zlib.dir/Debug/adler32.c.obj
+[8/16] Building C object CMakeFiles/zlib.dir/Debug/gzlib.c.obj
+[9/16] Building C object CMakeFiles/zlib.dir/Debug/infback.c.obj
+[10/16] Building C object CMakeFiles/zlib.dir/Debug/crc32.c.obj
+[11/16] Building C object CMakeFiles/zlib.dir/Debug/gzwrite.c.obj
+[12/16] Building C object CMakeFiles/zlib.dir/Debug/gzread.c.obj
+[13/16] Building C object CMakeFiles/zlib.dir/Debug/trees.c.obj
+[14/16] Building C object CMakeFiles/zlib.dir/Debug/inflate.c.obj
+[15/16] Building C object CMakeFiles/zlib.dir/Debug/deflate.c.obj
+[16/16] Linking C static library Debug/libz.a
+
+zlib/1.2.13: Package 'a3f16d7dbf3a57d3c8b63adde606ae668866e780' built
+zlib/1.2.13: Build folder /home/chipc/.conan2/p/b/zlib133eb0cd6650b/b/build
+zlib/1.2.13: Generating the package
+zlib/1.2.13: Packaging in folder /home/chipc/.conan2/p/b/zlib133eb0cd6650b/p
+zlib/1.2.13: Calling package()
+zlib/1.2.13: Running CMake.install()
+zlib/1.2.13: RUN: cmake --install "/home/chipc/.conan2/p/b/zlib133eb0cd6650b/b/build" --config Debug --prefix "/home/chipc/.conan2/p/b/zlib133eb0cd6650b/p"
+-- Installing: /home/chipc/.conan2/p/b/zlib133eb0cd6650b/p/lib/libz.a
+-- Installing: /home/chipc/.conan2/p/b/zlib133eb0cd6650b/p/include/zconf.h
+-- Installing: /home/chipc/.conan2/p/b/zlib133eb0cd6650b/p/include/zlib.h
+
+zlib/1.2.13: package(): Packaged 1 file: LICENSE
+zlib/1.2.13: package(): Packaged 1 '.a' file: libz.a
+zlib/1.2.13: package(): Packaged 2 '.h' files: zconf.h, zlib.h
+zlib/1.2.13: Created package revision d7a52a0dd1391244d860da43762e69ff
+zlib/1.2.13: Package 'a3f16d7dbf3a57d3c8b63adde606ae668866e780' created
+zlib/1.2.13: Full package reference: zlib/1.2.13#4e74ebf1361fe6fb60326f473f276eb5:a3f16d7dbf3a57d3c8b63adde606ae668866e780#d7a52a0dd1391244d860da43762e69ff
+zlib/1.2.13: Package folder /home/chipc/.conan2/p/b/zlib133eb0cd6650b/p
+WARN: deprecated: Usage of deprecated Conan 1.X features that will be removed in Conan 2.X:
+WARN: deprecated:     'cpp_info.names' used in: zlib/1.2.13
+
+======== Finalizing install (deploy, generators) ========
+conanfile.py (foo/1.0): Writing generators to /home/chipc/workspaces/conan-tricore-test/build/tc131/generators
+conanfile.py (foo/1.0): Generator 'CMakeDeps' calling 'generate()'
+conanfile.py (foo/1.0): CMakeDeps necessary find_package() and targets for your CMakeLists.txt
+    find_package(ZLIB)
+    target_link_libraries(... ZLIB::ZLIB)
+conanfile.py (foo/1.0): Calling generate()
+conanfile.py (foo/1.0): Generators folder: /home/chipc/workspaces/conan-tricore-test/build/tc131/generators
+conanfile.py (foo/1.0): CMakeToolchain generated: conan_toolchain.cmake
+conanfile.py (foo/1.0): CMakeToolchain: Preset 'conan-default' added to CMakePresets.json.
+    (cmake>=3.23) cmake --preset conan-default
+    (cmake<3.23) cmake <path> -G "Ninja Multi-Config" -DCMAKE_TOOLCHAIN_FILE=generators/conan_toolchain.cmake  -DCMAKE_POLICY_DEFAULT_CMP0091=NEW
+conanfile.py (foo/1.0): CMakeToolchain generated: /home/chipc/workspaces/conan-tricore-test/build/tc131/generators/CMakePresets.json
+conanfile.py (foo/1.0): Generating aggregated env files
+conanfile.py (foo/1.0): Generated aggregated env files: ['conanbuild.sh', 'conanrun.sh']
+Install finished successfully
+-------------------------------------------------
+-- Running CMake workflow for 'tc131'       --
+Executing workflow step 1 of 3: configure preset "tc131"
+
+Preset CMake variables:
+
+  CMAKE_PROJECT_TOP_LEVEL_INCLUDES="/home/chipc/workspaces/conan-tricore-test/cmake/conan_provider.cmake"
+  CMAKE_TOOLCHAIN_FILE:FILEPATH="/home/chipc/workspaces/conan-tricore-test/build/tc131/generators/conan_toolchain.cmake"
+  CONAN_HOST_PROFILE="/home/chipc/workspaces/conan-tricore-test/profiles/tc131"
+
+-- Using Conan toolchain: /home/chipc/workspaces/conan-tricore-test/build/tc131/generators/conan_toolchain.cmake
+-- Conan toolchain: C++ Standard 20 with extensions OFF
+-- The C compiler identification is GNU 11.3.1
+-- The CXX compiler identification is GNU 11.3.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /home/chipc/.conan2/p/b/tricoe43a847349e11/p/tricore-elf/bin/tricore-elf-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /home/chipc/.conan2/p/b/tricoe43a847349e11/p/tricore-elf/bin/tricore-elf-g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- CMake-Conan: first find_package() found. Installing dependencies with Conan
+-- CMake-Conan: Checking if a default profile exists
+/home/chipc/.conan2/profiles/default
+-- CMake-Conan: Installing both Debug and Release
+-- CMake-Conan: conan install /home/chipc/workspaces/conan-tricore-test -of=/home/chipc/workspaces/conan-tricore-test/build/tc131/conan --profile:host=/home/chipc/workspaces/conan-tricore-test/profiles/tc131;--profile:build=default;-s;build_type=Release;--build=missing
+
+======== Input profiles ========
+Profile host:
+[settings]
+arch=tc131
+build_type=Release
+compiler=gcc
+compiler.cppstd=20
+compiler.libcxx=libstdc++11
+compiler.version=11
+os=baremetal
+[options]
+*:fPIC=False
+*:shared=False
+[conf]
+tools.build:compiler_executables={'c': 'tricore-elf-gcc', 'cpp': 'tricore-elf-g++'}
+tools.cmake.cmake_layout:build_folder=build/tc131
+tools.cmake.cmaketoolchain:generator=Ninja Multi-Config
+
+Profile build:
+[settings]
+arch=x86_64
+build_type=Release
+compiler=gcc
+compiler.cppstd=gnu17
+compiler.libcxx=libstdc++11
+compiler.version=11
+os=Linux
+
+
+======== Computing dependency graph ========
+Graph root
+    conanfile.py (foo/1.0): /home/chipc/workspaces/conan-tricore-test/conanfile.py
+Requirements
+    zlib/1.2.13#4e74ebf1361fe6fb60326f473f276eb5 - Cache
+
+======== Computing necessary packages ========
+Requirements
+    zlib/1.2.13#4e74ebf1361fe6fb60326f473f276eb5:565fe700c6b39e14512692b993db8e56c6554f00#693d6efb29e3e91cec910f40b8b74be6 - Cache
+
+======== Installing packages ========
+zlib/1.2.13: Already installed! (1 of 1)
+WARN: deprecated: Usage of deprecated Conan 1.X features that will be removed in Conan 2.X:
+WARN: deprecated:     'cpp_info.names' used in: zlib/1.2.13
+
+======== Finalizing install (deploy, generators) ========
+conanfile.py (foo/1.0): Writing generators to /home/chipc/workspaces/conan-tricore-test/build/tc131/conan/build/tc131/generators
+conanfile.py (foo/1.0): Generator 'CMakeDeps' calling 'generate()'
+conanfile.py (foo/1.0): CMakeDeps necessary find_package() and targets for your CMakeLists.txt
+    find_package(ZLIB)
+    target_link_libraries(... ZLIB::ZLIB)
+conanfile.py (foo/1.0): Calling generate()
+conanfile.py (foo/1.0): Generators folder: /home/chipc/workspaces/conan-tricore-test/build/tc131/conan/build/tc131/generators
+conanfile.py (foo/1.0): CMakeToolchain generated: conan_toolchain.cmake
+conanfile.py (foo/1.0): CMakeToolchain: Preset 'conan-default' added to CMakePresets.json.
+    (cmake>=3.23) cmake --preset conan-default
+    (cmake<3.23) cmake <path> -G "Ninja Multi-Config" -DCMAKE_TOOLCHAIN_FILE=generators/conan_toolchain.cmake  -DCMAKE_POLICY_DEFAULT_CMP0091=NEW
+conanfile.py (foo/1.0): CMakeToolchain generated: /home/chipc/workspaces/conan-tricore-test/build/tc131/conan/build/tc131/generators/CMakePresets.json
+conanfile.py (foo/1.0): Generating aggregated env files
+conanfile.py (foo/1.0): Generated aggregated env files: ['conanbuild.sh', 'conanrun.sh']
+Install finished successfully
+-- CMake-Conan: CONAN_GENERATORS_FOLDER=/home/chipc/workspaces/conan-tricore-test/build/tc131/conan/build/tc131/generators
+-- CMake-Conan: CONANFILE=/home/chipc/workspaces/conan-tricore-test/conanfile.py (foo/1.0)
+-- CMake-Conan: conan install /home/chipc/workspaces/conan-tricore-test -of=/home/chipc/workspaces/conan-tricore-test/build/tc131/conan --profile:host=/home/chipc/workspaces/conan-tricore-test/profiles/tc131;--profile:build=default;-s;build_type=Debug;--build=missing
+
+======== Input profiles ========
+Profile host:
+[settings]
+arch=tc131
+build_type=Debug
+compiler=gcc
+compiler.cppstd=20
+compiler.libcxx=libstdc++11
+compiler.version=11
+os=baremetal
+[options]
+*:fPIC=False
+*:shared=False
+[conf]
+tools.build:compiler_executables={'c': 'tricore-elf-gcc', 'cpp': 'tricore-elf-g++'}
+tools.cmake.cmake_layout:build_folder=build/tc131
+tools.cmake.cmaketoolchain:generator=Ninja Multi-Config
+
+Profile build:
+[settings]
+arch=x86_64
+build_type=Release
+compiler=gcc
+compiler.cppstd=gnu17
+compiler.libcxx=libstdc++11
+compiler.version=11
+os=Linux
+
+
+======== Computing dependency graph ========
+Graph root
+    conanfile.py (foo/1.0): /home/chipc/workspaces/conan-tricore-test/conanfile.py
+Requirements
+    zlib/1.2.13#4e74ebf1361fe6fb60326f473f276eb5 - Cache
+
+======== Computing necessary packages ========
+Requirements
+    zlib/1.2.13#4e74ebf1361fe6fb60326f473f276eb5:a3f16d7dbf3a57d3c8b63adde606ae668866e780#d7a52a0dd1391244d860da43762e69ff - Cache
+
+======== Installing packages ========
+zlib/1.2.13: Already installed! (1 of 1)
+WARN: deprecated: Usage of deprecated Conan 1.X features that will be removed in Conan 2.X:
+WARN: deprecated:     'cpp_info.names' used in: zlib/1.2.13
+
+======== Finalizing install (deploy, generators) ========
+conanfile.py (foo/1.0): Writing generators to /home/chipc/workspaces/conan-tricore-test/build/tc131/conan/build/tc131/generators
+conanfile.py (foo/1.0): Generator 'CMakeDeps' calling 'generate()'
+conanfile.py (foo/1.0): CMakeDeps necessary find_package() and targets for your CMakeLists.txt
+    find_package(ZLIB)
+    target_link_libraries(... ZLIB::ZLIB)
+conanfile.py (foo/1.0): Calling generate()
+conanfile.py (foo/1.0): Generators folder: /home/chipc/workspaces/conan-tricore-test/build/tc131/conan/build/tc131/generators
+conanfile.py (foo/1.0): CMakeToolchain generated: conan_toolchain.cmake
+conanfile.py (foo/1.0): CMakeToolchain: Preset 'conan-default' added to CMakePresets.json.
+    (cmake>=3.23) cmake --preset conan-default
+    (cmake<3.23) cmake <path> -G "Ninja Multi-Config" -DCMAKE_TOOLCHAIN_FILE=generators/conan_toolchain.cmake  -DCMAKE_POLICY_DEFAULT_CMP0091=NEW
+conanfile.py (foo/1.0): CMakeToolchain generated: /home/chipc/workspaces/conan-tricore-test/build/tc131/conan/build/tc131/generators/CMakePresets.json
+conanfile.py (foo/1.0): Generating aggregated env files
+conanfile.py (foo/1.0): Generated aggregated env files: ['conanbuild.sh', 'conanrun.sh']
+Install finished successfully
+-- CMake-Conan: CONAN_GENERATORS_FOLDER=/home/chipc/workspaces/conan-tricore-test/build/tc131/conan/build/tc131/generators
+-- CMake-Conan: CONANFILE=/home/chipc/workspaces/conan-tricore-test/conanfile.py (foo/1.0)
+-- Conan: Target declared 'ZLIB::ZLIB'
+-- Configuring done (1.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/chipc/workspaces/conan-tricore-test/build/tc131
+
+Executing workflow step 2 of 3: build preset "tc131-debug"
+
+[1/2] Building CXX object CMakeFiles/foo.dir/Debug/src/foo.cpp.obj
+[2/2] Linking CXX static library Debug/libfoo.a
+
+Executing workflow step 3 of 3: build preset "tc131-release"
+
+[1/2] Building CXX object CMakeFiles/foo.dir/Release/src/foo.cpp.obj
+[2/2] Linking CXX static library Release/libfoo.a
+
+-------------------------------------------------
+-- Conan Install for 'tc161' profile        --
+
+======== Input profiles ========
+Profile host:
+[settings]
+arch=tc161
+build_type=Release
+compiler=gcc
+compiler.cppstd=20
+compiler.libcxx=libstdc++11
+compiler.version=11
+os=baremetal
+[options]
+*:fPIC=False
+*:shared=False
+[conf]
+tools.build:compiler_executables={'c': 'tricore-elf-gcc', 'cpp': 'tricore-elf-g++'}
+tools.cmake.cmake_layout:build_folder=build/tc161
+tools.cmake.cmaketoolchain:generator=Ninja Multi-Config
+
+Profile build:
+[settings]
+arch=x86_64
+build_type=Release
+compiler=gcc
+compiler.cppstd=gnu17
+compiler.libcxx=libstdc++11
+compiler.version=11
+os=Linux
+
+
+======== Computing dependency graph ========
+Graph root
+    conanfile.py (foo/1.0): /home/chipc/workspaces/conan-tricore-test/conanfile.py
+Requirements
+    zlib/1.2.13#4e74ebf1361fe6fb60326f473f276eb5 - Cache
+
+======== Computing necessary packages ========
+zlib/1.2.13: Forced build from source
+Requirements
+    zlib/1.2.13#4e74ebf1361fe6fb60326f473f276eb5:bb8d4b06eb33ab4925d11015c9c92fdc7dfc3616 - Build
+
+======== Installing packages ========
+
+-------- Installing package zlib/1.2.13 (1 of 1) --------
+zlib/1.2.13: Building from source
+zlib/1.2.13: Package zlib/1.2.13:bb8d4b06eb33ab4925d11015c9c92fdc7dfc3616
+zlib/1.2.13: Copying sources to build folder
+zlib/1.2.13: Building your package in /home/chipc/.conan2/p/b/zlib0aacdd1d7f58f/b
+zlib/1.2.13: Calling generate()
+zlib/1.2.13: Generators folder: /home/chipc/.conan2/p/b/zlib0aacdd1d7f58f/b/build/generators
+zlib/1.2.13: CMakeToolchain generated: conan_toolchain.cmake
+zlib/1.2.13: CMakeToolchain generated: /home/chipc/.conan2/p/b/zlib0aacdd1d7f58f/b/build/generators/CMakePresets.json
+zlib/1.2.13: CMakeToolchain generated: /home/chipc/.conan2/p/b/zlib0aacdd1d7f58f/b/src/CMakeUserPresets.json
+zlib/1.2.13: Generating aggregated env files
+zlib/1.2.13: Generated aggregated env files: ['conanbuild.sh', 'conanrun.sh']
+zlib/1.2.13: Calling build()
+zlib/1.2.13: Apply patch (conan): separate static/shared builds, disable debug suffix, disable building examples
+zlib/1.2.13: Running CMake.configure()
+zlib/1.2.13: RUN: cmake -G "Ninja Multi-Config" -DCMAKE_TOOLCHAIN_FILE="generators/conan_toolchain.cmake" -DCMAKE_INSTALL_PREFIX="/home/chipc/.conan2/p/b/zlib0aacdd1d7f58f/p" -DCMAKE_POLICY_DEFAULT_CMP0091="NEW" "/home/chipc/.conan2/p/b/zlib0aacdd1d7f58f/b/src"
+CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+-- Using Conan toolchain: /home/chipc/.conan2/p/b/zlib0aacdd1d7f58f/b/build/generators/conan_toolchain.cmake
+-- Conan toolchain: Setting CMAKE_POSITION_INDEPENDENT_CODE=OFF (options.fPIC)
+-- Conan toolchain: Setting BUILD_SHARED_LIBS = OFF
+-- The C compiler identification is GNU 11.3.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /home/chipc/.conan2/p/b/tricoe43a847349e11/p/tricore-elf/bin/tricore-elf-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for stddef.h
+-- Looking for stddef.h - found
+-- Check size of off64_t
+-- Check size of off64_t - failed
+-- Looking for fseeko
+-- Looking for fseeko - found
+-- Looking for unistd.h
+-- Looking for unistd.h - found
+-- Renaming
+--     /home/chipc/.conan2/p/b/zlib0aacdd1d7f58f/b/src/zconf.h
+-- to 'zconf.h.included' because this file is included with zlib
+-- but CMake generates it automatically in the build directory.
+-- Configuring done (0.6s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/chipc/.conan2/p/b/zlib0aacdd1d7f58f/b/build
+
+zlib/1.2.13: Running CMake.build()
+zlib/1.2.13: RUN: cmake --build "/home/chipc/.conan2/p/b/zlib0aacdd1d7f58f/b/build" --config Release -- -j24
+[1/16] Building C object CMakeFiles/zlib.dir/Release/gzclose.c.obj
+[2/16] Building C object CMakeFiles/zlib.dir/Release/compress.c.obj
+[3/16] Building C object CMakeFiles/zlib.dir/Release/zutil.c.obj
+[4/16] Building C object CMakeFiles/zlib.dir/Release/uncompr.c.obj
+[5/16] Building C object CMakeFiles/zlib.dir/Release/adler32.c.obj
+[6/16] Building C object CMakeFiles/zlib.dir/Release/gzlib.c.obj
+[7/16] Building C object CMakeFiles/zlib.dir/Release/inftrees.c.obj
+[8/16] Building C object CMakeFiles/zlib.dir/Release/inffast.c.obj
+[9/16] Building C object CMakeFiles/zlib.dir/Release/gzwrite.c.obj
+[10/16] Building C object CMakeFiles/zlib.dir/Release/crc32.c.obj
+[11/16] Building C object CMakeFiles/zlib.dir/Release/gzread.c.obj
+[12/16] Building C object CMakeFiles/zlib.dir/Release/infback.c.obj
+[13/16] Building C object CMakeFiles/zlib.dir/Release/trees.c.obj
+[14/16] Building C object CMakeFiles/zlib.dir/Release/inflate.c.obj
+[15/16] Building C object CMakeFiles/zlib.dir/Release/deflate.c.obj
+[16/16] Linking C static library Release/libz.a
+
+zlib/1.2.13: Package 'bb8d4b06eb33ab4925d11015c9c92fdc7dfc3616' built
+zlib/1.2.13: Build folder /home/chipc/.conan2/p/b/zlib0aacdd1d7f58f/b/build
+zlib/1.2.13: Generating the package
+zlib/1.2.13: Packaging in folder /home/chipc/.conan2/p/b/zlib0aacdd1d7f58f/p
+zlib/1.2.13: Calling package()
+zlib/1.2.13: Running CMake.install()
+zlib/1.2.13: RUN: cmake --install "/home/chipc/.conan2/p/b/zlib0aacdd1d7f58f/b/build" --config Release --prefix "/home/chipc/.conan2/p/b/zlib0aacdd1d7f58f/p"
+-- Installing: /home/chipc/.conan2/p/b/zlib0aacdd1d7f58f/p/lib/libz.a
+-- Installing: /home/chipc/.conan2/p/b/zlib0aacdd1d7f58f/p/include/zconf.h
+-- Installing: /home/chipc/.conan2/p/b/zlib0aacdd1d7f58f/p/include/zlib.h
+
+zlib/1.2.13: package(): Packaged 1 file: LICENSE
+zlib/1.2.13: package(): Packaged 1 '.a' file: libz.a
+zlib/1.2.13: package(): Packaged 2 '.h' files: zconf.h, zlib.h
+zlib/1.2.13: Created package revision c8ace7a76db8563cd396faf8ca3ebd5c
+zlib/1.2.13: Package 'bb8d4b06eb33ab4925d11015c9c92fdc7dfc3616' created
+zlib/1.2.13: Full package reference: zlib/1.2.13#4e74ebf1361fe6fb60326f473f276eb5:bb8d4b06eb33ab4925d11015c9c92fdc7dfc3616#c8ace7a76db8563cd396faf8ca3ebd5c
+zlib/1.2.13: Package folder /home/chipc/.conan2/p/b/zlib0aacdd1d7f58f/p
+WARN: deprecated: Usage of deprecated Conan 1.X features that will be removed in Conan 2.X:
+WARN: deprecated:     'cpp_info.names' used in: zlib/1.2.13
+
+======== Finalizing install (deploy, generators) ========
+conanfile.py (foo/1.0): Writing generators to /home/chipc/workspaces/conan-tricore-test/build/tc161/generators
+conanfile.py (foo/1.0): Generator 'CMakeDeps' calling 'generate()'
+conanfile.py (foo/1.0): CMakeDeps necessary find_package() and targets for your CMakeLists.txt
+    find_package(ZLIB)
+    target_link_libraries(... ZLIB::ZLIB)
+conanfile.py (foo/1.0): Calling generate()
+conanfile.py (foo/1.0): Generators folder: /home/chipc/workspaces/conan-tricore-test/build/tc161/generators
+conanfile.py (foo/1.0): CMakeToolchain generated: conan_toolchain.cmake
+conanfile.py (foo/1.0): CMakeToolchain: Preset 'conan-default' added to CMakePresets.json.
+    (cmake>=3.23) cmake --preset conan-default
+    (cmake<3.23) cmake <path> -G "Ninja Multi-Config" -DCMAKE_TOOLCHAIN_FILE=generators/conan_toolchain.cmake  -DCMAKE_POLICY_DEFAULT_CMP0091=NEW
+conanfile.py (foo/1.0): CMakeToolchain generated: /home/chipc/workspaces/conan-tricore-test/build/tc161/generators/CMakePresets.json
+conanfile.py (foo/1.0): Generating aggregated env files
+conanfile.py (foo/1.0): Generated aggregated env files: ['conanbuild.sh', 'conanrun.sh']
+Install finished successfully
+
+======== Input profiles ========
+Profile host:
+[settings]
+arch=tc161
+build_type=Debug
+compiler=gcc
+compiler.cppstd=20
+compiler.libcxx=libstdc++11
+compiler.version=11
+os=baremetal
+[options]
+*:fPIC=False
+*:shared=False
+[conf]
+tools.build:compiler_executables={'c': 'tricore-elf-gcc', 'cpp': 'tricore-elf-g++'}
+tools.cmake.cmake_layout:build_folder=build/tc161
+tools.cmake.cmaketoolchain:generator=Ninja Multi-Config
+
+Profile build:
+[settings]
+arch=x86_64
+build_type=Release
+compiler=gcc
+compiler.cppstd=gnu17
+compiler.libcxx=libstdc++11
+compiler.version=11
+os=Linux
+
+
+======== Computing dependency graph ========
+Graph root
+    conanfile.py (foo/1.0): /home/chipc/workspaces/conan-tricore-test/conanfile.py
+Requirements
+    zlib/1.2.13#4e74ebf1361fe6fb60326f473f276eb5 - Cache
+
+======== Computing necessary packages ========
+zlib/1.2.13: Forced build from source
+Requirements
+    zlib/1.2.13#4e74ebf1361fe6fb60326f473f276eb5:c9d15f9dd4d2d14926aed06441efdb3f928628eb - Build
+
+======== Installing packages ========
+
+-------- Installing package zlib/1.2.13 (1 of 1) --------
+zlib/1.2.13: Building from source
+zlib/1.2.13: Package zlib/1.2.13:c9d15f9dd4d2d14926aed06441efdb3f928628eb
+zlib/1.2.13: Copying sources to build folder
+zlib/1.2.13: Building your package in /home/chipc/.conan2/p/b/zlib1675365b7ce94/b
+zlib/1.2.13: Calling generate()
+zlib/1.2.13: Generators folder: /home/chipc/.conan2/p/b/zlib1675365b7ce94/b/build/generators
+zlib/1.2.13: CMakeToolchain generated: conan_toolchain.cmake
+zlib/1.2.13: CMakeToolchain generated: /home/chipc/.conan2/p/b/zlib1675365b7ce94/b/build/generators/CMakePresets.json
+zlib/1.2.13: CMakeToolchain generated: /home/chipc/.conan2/p/b/zlib1675365b7ce94/b/src/CMakeUserPresets.json
+zlib/1.2.13: Generating aggregated env files
+zlib/1.2.13: Generated aggregated env files: ['conanbuild.sh', 'conanrun.sh']
+zlib/1.2.13: Calling build()
+zlib/1.2.13: Apply patch (conan): separate static/shared builds, disable debug suffix, disable building examples
+zlib/1.2.13: Running CMake.configure()
+zlib/1.2.13: RUN: cmake -G "Ninja Multi-Config" -DCMAKE_TOOLCHAIN_FILE="generators/conan_toolchain.cmake" -DCMAKE_INSTALL_PREFIX="/home/chipc/.conan2/p/b/zlib1675365b7ce94/p" -DCMAKE_POLICY_DEFAULT_CMP0091="NEW" "/home/chipc/.conan2/p/b/zlib1675365b7ce94/b/src"
+CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+-- Using Conan toolchain: /home/chipc/.conan2/p/b/zlib1675365b7ce94/b/build/generators/conan_toolchain.cmake
+-- Conan toolchain: Setting CMAKE_POSITION_INDEPENDENT_CODE=OFF (options.fPIC)
+-- Conan toolchain: Setting BUILD_SHARED_LIBS = OFF
+-- The C compiler identification is GNU 11.3.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /home/chipc/.conan2/p/b/tricoe43a847349e11/p/tricore-elf/bin/tricore-elf-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for stddef.h
+-- Looking for stddef.h - found
+-- Check size of off64_t
+-- Check size of off64_t - failed
+-- Looking for fseeko
+-- Looking for fseeko - found
+-- Looking for unistd.h
+-- Looking for unistd.h - found
+-- Renaming
+--     /home/chipc/.conan2/p/b/zlib1675365b7ce94/b/src/zconf.h
+-- to 'zconf.h.included' because this file is included with zlib
+-- but CMake generates it automatically in the build directory.
+-- Configuring done (0.6s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/chipc/.conan2/p/b/zlib1675365b7ce94/b/build
+
+zlib/1.2.13: Running CMake.build()
+zlib/1.2.13: RUN: cmake --build "/home/chipc/.conan2/p/b/zlib1675365b7ce94/b/build" --config Debug -- -j24
+[1/16] Building C object CMakeFiles/zlib.dir/Debug/uncompr.c.obj
+[2/16] Building C object CMakeFiles/zlib.dir/Debug/zutil.c.obj
+[3/16] Building C object CMakeFiles/zlib.dir/Debug/compress.c.obj
+[4/16] Building C object CMakeFiles/zlib.dir/Debug/gzclose.c.obj
+[5/16] Building C object CMakeFiles/zlib.dir/Debug/inftrees.c.obj
+[6/16] Building C object CMakeFiles/zlib.dir/Debug/inffast.c.obj
+[7/16] Building C object CMakeFiles/zlib.dir/Debug/adler32.c.obj
+[8/16] Building C object CMakeFiles/zlib.dir/Debug/gzlib.c.obj
+[9/16] Building C object CMakeFiles/zlib.dir/Debug/gzwrite.c.obj
+[10/16] Building C object CMakeFiles/zlib.dir/Debug/crc32.c.obj
+[11/16] Building C object CMakeFiles/zlib.dir/Debug/gzread.c.obj
+[12/16] Building C object CMakeFiles/zlib.dir/Debug/infback.c.obj
+[13/16] Building C object CMakeFiles/zlib.dir/Debug/trees.c.obj
+[14/16] Building C object CMakeFiles/zlib.dir/Debug/inflate.c.obj
+[15/16] Building C object CMakeFiles/zlib.dir/Debug/deflate.c.obj
+[16/16] Linking C static library Debug/libz.a
+
+zlib/1.2.13: Package 'c9d15f9dd4d2d14926aed06441efdb3f928628eb' built
+zlib/1.2.13: Build folder /home/chipc/.conan2/p/b/zlib1675365b7ce94/b/build
+zlib/1.2.13: Generating the package
+zlib/1.2.13: Packaging in folder /home/chipc/.conan2/p/b/zlib1675365b7ce94/p
+zlib/1.2.13: Calling package()
+zlib/1.2.13: Running CMake.install()
+zlib/1.2.13: RUN: cmake --install "/home/chipc/.conan2/p/b/zlib1675365b7ce94/b/build" --config Debug --prefix "/home/chipc/.conan2/p/b/zlib1675365b7ce94/p"
+-- Installing: /home/chipc/.conan2/p/b/zlib1675365b7ce94/p/lib/libz.a
+-- Installing: /home/chipc/.conan2/p/b/zlib1675365b7ce94/p/include/zconf.h
+-- Installing: /home/chipc/.conan2/p/b/zlib1675365b7ce94/p/include/zlib.h
+
+zlib/1.2.13: package(): Packaged 1 file: LICENSE
+zlib/1.2.13: package(): Packaged 1 '.a' file: libz.a
+zlib/1.2.13: package(): Packaged 2 '.h' files: zconf.h, zlib.h
+zlib/1.2.13: Created package revision 130e9a3c92e1c214efead31795e42977
+zlib/1.2.13: Package 'c9d15f9dd4d2d14926aed06441efdb3f928628eb' created
+zlib/1.2.13: Full package reference: zlib/1.2.13#4e74ebf1361fe6fb60326f473f276eb5:c9d15f9dd4d2d14926aed06441efdb3f928628eb#130e9a3c92e1c214efead31795e42977
+zlib/1.2.13: Package folder /home/chipc/.conan2/p/b/zlib1675365b7ce94/p
+WARN: deprecated: Usage of deprecated Conan 1.X features that will be removed in Conan 2.X:
+WARN: deprecated:     'cpp_info.names' used in: zlib/1.2.13
+
+======== Finalizing install (deploy, generators) ========
+conanfile.py (foo/1.0): Writing generators to /home/chipc/workspaces/conan-tricore-test/build/tc161/generators
+conanfile.py (foo/1.0): Generator 'CMakeDeps' calling 'generate()'
+conanfile.py (foo/1.0): CMakeDeps necessary find_package() and targets for your CMakeLists.txt
+    find_package(ZLIB)
+    target_link_libraries(... ZLIB::ZLIB)
+conanfile.py (foo/1.0): Calling generate()
+conanfile.py (foo/1.0): Generators folder: /home/chipc/workspaces/conan-tricore-test/build/tc161/generators
+conanfile.py (foo/1.0): CMakeToolchain generated: conan_toolchain.cmake
+conanfile.py (foo/1.0): CMakeToolchain: Preset 'conan-default' added to CMakePresets.json.
+    (cmake>=3.23) cmake --preset conan-default
+    (cmake<3.23) cmake <path> -G "Ninja Multi-Config" -DCMAKE_TOOLCHAIN_FILE=generators/conan_toolchain.cmake  -DCMAKE_POLICY_DEFAULT_CMP0091=NEW
+conanfile.py (foo/1.0): CMakeToolchain generated: /home/chipc/workspaces/conan-tricore-test/build/tc161/generators/CMakePresets.json
+conanfile.py (foo/1.0): Generating aggregated env files
+conanfile.py (foo/1.0): Generated aggregated env files: ['conanbuild.sh', 'conanrun.sh']
+Install finished successfully
+-------------------------------------------------
+-- Running CMake workflow for 'tc161'       --
+Executing workflow step 1 of 3: configure preset "tc161"
+
+Preset CMake variables:
+
+  CMAKE_PROJECT_TOP_LEVEL_INCLUDES="/home/chipc/workspaces/conan-tricore-test/cmake/conan_provider.cmake"
+  CMAKE_TOOLCHAIN_FILE:FILEPATH="/home/chipc/workspaces/conan-tricore-test/build/tc161/generators/conan_toolchain.cmake"
+  CONAN_HOST_PROFILE="/home/chipc/workspaces/conan-tricore-test/profiles/tc161"
+
+-- Using Conan toolchain: /home/chipc/workspaces/conan-tricore-test/build/tc161/generators/conan_toolchain.cmake
+-- Conan toolchain: C++ Standard 20 with extensions OFF
+-- The C compiler identification is GNU 11.3.1
+-- The CXX compiler identification is GNU 11.3.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /home/chipc/.conan2/p/b/tricoe43a847349e11/p/tricore-elf/bin/tricore-elf-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /home/chipc/.conan2/p/b/tricoe43a847349e11/p/tricore-elf/bin/tricore-elf-g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- CMake-Conan: first find_package() found. Installing dependencies with Conan
+-- CMake-Conan: Checking if a default profile exists
+/home/chipc/.conan2/profiles/default
+-- CMake-Conan: Installing both Debug and Release
+-- CMake-Conan: conan install /home/chipc/workspaces/conan-tricore-test -of=/home/chipc/workspaces/conan-tricore-test/build/tc161/conan --profile:host=/home/chipc/workspaces/conan-tricore-test/profiles/tc161;--profile:build=default;-s;build_type=Release;--build=missing
+
+======== Input profiles ========
+Profile host:
+[settings]
+arch=tc161
+build_type=Release
+compiler=gcc
+compiler.cppstd=20
+compiler.libcxx=libstdc++11
+compiler.version=11
+os=baremetal
+[options]
+*:fPIC=False
+*:shared=False
+[conf]
+tools.build:compiler_executables={'c': 'tricore-elf-gcc', 'cpp': 'tricore-elf-g++'}
+tools.cmake.cmake_layout:build_folder=build/tc161
+tools.cmake.cmaketoolchain:generator=Ninja Multi-Config
+
+Profile build:
+[settings]
+arch=x86_64
+build_type=Release
+compiler=gcc
+compiler.cppstd=gnu17
+compiler.libcxx=libstdc++11
+compiler.version=11
+os=Linux
+
+
+======== Computing dependency graph ========
+Graph root
+    conanfile.py (foo/1.0): /home/chipc/workspaces/conan-tricore-test/conanfile.py
+Requirements
+    zlib/1.2.13#4e74ebf1361fe6fb60326f473f276eb5 - Cache
+
+======== Computing necessary packages ========
+Requirements
+    zlib/1.2.13#4e74ebf1361fe6fb60326f473f276eb5:bb8d4b06eb33ab4925d11015c9c92fdc7dfc3616#c8ace7a76db8563cd396faf8ca3ebd5c - Cache
+
+======== Installing packages ========
+zlib/1.2.13: Already installed! (1 of 1)
+WARN: deprecated: Usage of deprecated Conan 1.X features that will be removed in Conan 2.X:
+WARN: deprecated:     'cpp_info.names' used in: zlib/1.2.13
+
+======== Finalizing install (deploy, generators) ========
+conanfile.py (foo/1.0): Writing generators to /home/chipc/workspaces/conan-tricore-test/build/tc161/conan/build/tc161/generators
+conanfile.py (foo/1.0): Generator 'CMakeDeps' calling 'generate()'
+conanfile.py (foo/1.0): CMakeDeps necessary find_package() and targets for your CMakeLists.txt
+    find_package(ZLIB)
+    target_link_libraries(... ZLIB::ZLIB)
+conanfile.py (foo/1.0): Calling generate()
+conanfile.py (foo/1.0): Generators folder: /home/chipc/workspaces/conan-tricore-test/build/tc161/conan/build/tc161/generators
+conanfile.py (foo/1.0): CMakeToolchain generated: conan_toolchain.cmake
+conanfile.py (foo/1.0): CMakeToolchain: Preset 'conan-default' added to CMakePresets.json.
+    (cmake>=3.23) cmake --preset conan-default
+    (cmake<3.23) cmake <path> -G "Ninja Multi-Config" -DCMAKE_TOOLCHAIN_FILE=generators/conan_toolchain.cmake  -DCMAKE_POLICY_DEFAULT_CMP0091=NEW
+conanfile.py (foo/1.0): CMakeToolchain generated: /home/chipc/workspaces/conan-tricore-test/build/tc161/conan/build/tc161/generators/CMakePresets.json
+conanfile.py (foo/1.0): Generating aggregated env files
+conanfile.py (foo/1.0): Generated aggregated env files: ['conanbuild.sh', 'conanrun.sh']
+Install finished successfully
+-- CMake-Conan: CONAN_GENERATORS_FOLDER=/home/chipc/workspaces/conan-tricore-test/build/tc161/conan/build/tc161/generators
+-- CMake-Conan: CONANFILE=/home/chipc/workspaces/conan-tricore-test/conanfile.py (foo/1.0)
+-- CMake-Conan: conan install /home/chipc/workspaces/conan-tricore-test -of=/home/chipc/workspaces/conan-tricore-test/build/tc161/conan --profile:host=/home/chipc/workspaces/conan-tricore-test/profiles/tc161;--profile:build=default;-s;build_type=Debug;--build=missing
+
+======== Input profiles ========
+Profile host:
+[settings]
+arch=tc161
+build_type=Debug
+compiler=gcc
+compiler.cppstd=20
+compiler.libcxx=libstdc++11
+compiler.version=11
+os=baremetal
+[options]
+*:fPIC=False
+*:shared=False
+[conf]
+tools.build:compiler_executables={'c': 'tricore-elf-gcc', 'cpp': 'tricore-elf-g++'}
+tools.cmake.cmake_layout:build_folder=build/tc161
+tools.cmake.cmaketoolchain:generator=Ninja Multi-Config
+
+Profile build:
+[settings]
+arch=x86_64
+build_type=Release
+compiler=gcc
+compiler.cppstd=gnu17
+compiler.libcxx=libstdc++11
+compiler.version=11
+os=Linux
+
+
+======== Computing dependency graph ========
+Graph root
+    conanfile.py (foo/1.0): /home/chipc/workspaces/conan-tricore-test/conanfile.py
+Requirements
+    zlib/1.2.13#4e74ebf1361fe6fb60326f473f276eb5 - Cache
+
+======== Computing necessary packages ========
+Requirements
+    zlib/1.2.13#4e74ebf1361fe6fb60326f473f276eb5:c9d15f9dd4d2d14926aed06441efdb3f928628eb#130e9a3c92e1c214efead31795e42977 - Cache
+
+======== Installing packages ========
+zlib/1.2.13: Already installed! (1 of 1)
+WARN: deprecated: Usage of deprecated Conan 1.X features that will be removed in Conan 2.X:
+WARN: deprecated:     'cpp_info.names' used in: zlib/1.2.13
+
+======== Finalizing install (deploy, generators) ========
+conanfile.py (foo/1.0): Writing generators to /home/chipc/workspaces/conan-tricore-test/build/tc161/conan/build/tc161/generators
+conanfile.py (foo/1.0): Generator 'CMakeDeps' calling 'generate()'
+conanfile.py (foo/1.0): CMakeDeps necessary find_package() and targets for your CMakeLists.txt
+    find_package(ZLIB)
+    target_link_libraries(... ZLIB::ZLIB)
+conanfile.py (foo/1.0): Calling generate()
+conanfile.py (foo/1.0): Generators folder: /home/chipc/workspaces/conan-tricore-test/build/tc161/conan/build/tc161/generators
+conanfile.py (foo/1.0): CMakeToolchain generated: conan_toolchain.cmake
+conanfile.py (foo/1.0): CMakeToolchain: Preset 'conan-default' added to CMakePresets.json.
+    (cmake>=3.23) cmake --preset conan-default
+    (cmake<3.23) cmake <path> -G "Ninja Multi-Config" -DCMAKE_TOOLCHAIN_FILE=generators/conan_toolchain.cmake  -DCMAKE_POLICY_DEFAULT_CMP0091=NEW
+conanfile.py (foo/1.0): CMakeToolchain generated: /home/chipc/workspaces/conan-tricore-test/build/tc161/conan/build/tc161/generators/CMakePresets.json
+conanfile.py (foo/1.0): Generating aggregated env files
+conanfile.py (foo/1.0): Generated aggregated env files: ['conanbuild.sh', 'conanrun.sh']
+Install finished successfully
+-- CMake-Conan: CONAN_GENERATORS_FOLDER=/home/chipc/workspaces/conan-tricore-test/build/tc161/conan/build/tc161/generators
+-- CMake-Conan: CONANFILE=/home/chipc/workspaces/conan-tricore-test/conanfile.py (foo/1.0)
+-- Conan: Target declared 'ZLIB::ZLIB'
+-- Configuring done (1.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/chipc/workspaces/conan-tricore-test/build/tc161
+
+Executing workflow step 2 of 3: build preset "tc161-debug"
+
+[1/2] Building CXX object CMakeFiles/foo.dir/Debug/src/foo.cpp.obj
+[2/2] Linking CXX static library Debug/libfoo.a
+
+Executing workflow step 3 of 3: build preset "tc161-release"
+
+[1/2] Building CXX object CMakeFiles/foo.dir/Release/src/foo.cpp.obj
+[2/2] Linking CXX static library Release/libfoo.a
+
+-------------------------------------------------
+-- Conan Install for 'tc162' profile        --
+
+======== Input profiles ========
+Profile host:
+[settings]
+arch=tc162
+build_type=Release
+compiler=gcc
+compiler.cppstd=20
+compiler.libcxx=libstdc++11
+compiler.version=11
+os=baremetal
+[options]
+*:fPIC=False
+*:shared=False
+[conf]
+tools.build:compiler_executables={'c': 'tricore-elf-gcc', 'cpp': 'tricore-elf-g++'}
+tools.cmake.cmake_layout:build_folder=build/tc162
+tools.cmake.cmaketoolchain:generator=Ninja Multi-Config
+
+Profile build:
+[settings]
+arch=x86_64
+build_type=Release
+compiler=gcc
+compiler.cppstd=gnu17
+compiler.libcxx=libstdc++11
+compiler.version=11
+os=Linux
+
+
+======== Computing dependency graph ========
+Graph root
+    conanfile.py (foo/1.0): /home/chipc/workspaces/conan-tricore-test/conanfile.py
+Requirements
+    zlib/1.2.13#4e74ebf1361fe6fb60326f473f276eb5 - Cache
+
+======== Computing necessary packages ========
+zlib/1.2.13: Forced build from source
+Requirements
+    zlib/1.2.13#4e74ebf1361fe6fb60326f473f276eb5:09b09ac0f270c2f8bb2a6716c0e57b1983c1682d - Build
+
+======== Installing packages ========
+
+-------- Installing package zlib/1.2.13 (1 of 1) --------
+zlib/1.2.13: Building from source
+zlib/1.2.13: Package zlib/1.2.13:09b09ac0f270c2f8bb2a6716c0e57b1983c1682d
+zlib/1.2.13: Copying sources to build folder
+zlib/1.2.13: Building your package in /home/chipc/.conan2/p/b/zlibe26abdd4f18b8/b
+zlib/1.2.13: Calling generate()
+zlib/1.2.13: Generators folder: /home/chipc/.conan2/p/b/zlibe26abdd4f18b8/b/build/generators
+zlib/1.2.13: CMakeToolchain generated: conan_toolchain.cmake
+zlib/1.2.13: CMakeToolchain generated: /home/chipc/.conan2/p/b/zlibe26abdd4f18b8/b/build/generators/CMakePresets.json
+zlib/1.2.13: CMakeToolchain generated: /home/chipc/.conan2/p/b/zlibe26abdd4f18b8/b/src/CMakeUserPresets.json
+zlib/1.2.13: Generating aggregated env files
+zlib/1.2.13: Generated aggregated env files: ['conanbuild.sh', 'conanrun.sh']
+zlib/1.2.13: Calling build()
+zlib/1.2.13: Apply patch (conan): separate static/shared builds, disable debug suffix, disable building examples
+zlib/1.2.13: Running CMake.configure()
+zlib/1.2.13: RUN: cmake -G "Ninja Multi-Config" -DCMAKE_TOOLCHAIN_FILE="generators/conan_toolchain.cmake" -DCMAKE_INSTALL_PREFIX="/home/chipc/.conan2/p/b/zlibe26abdd4f18b8/p" -DCMAKE_POLICY_DEFAULT_CMP0091="NEW" "/home/chipc/.conan2/p/b/zlibe26abdd4f18b8/b/src"
+CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+-- Using Conan toolchain: /home/chipc/.conan2/p/b/zlibe26abdd4f18b8/b/build/generators/conan_toolchain.cmake
+-- Conan toolchain: Setting CMAKE_POSITION_INDEPENDENT_CODE=OFF (options.fPIC)
+-- Conan toolchain: Setting BUILD_SHARED_LIBS = OFF
+-- The C compiler identification is GNU 11.3.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /home/chipc/.conan2/p/b/tricoe43a847349e11/p/tricore-elf/bin/tricore-elf-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for stddef.h
+-- Looking for stddef.h - found
+-- Check size of off64_t
+-- Check size of off64_t - failed
+-- Looking for fseeko
+-- Looking for fseeko - found
+-- Looking for unistd.h
+-- Looking for unistd.h - found
+-- Renaming
+--     /home/chipc/.conan2/p/b/zlibe26abdd4f18b8/b/src/zconf.h
+-- to 'zconf.h.included' because this file is included with zlib
+-- but CMake generates it automatically in the build directory.
+-- Configuring done (0.6s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/chipc/.conan2/p/b/zlibe26abdd4f18b8/b/build
+
+zlib/1.2.13: Running CMake.build()
+zlib/1.2.13: RUN: cmake --build "/home/chipc/.conan2/p/b/zlibe26abdd4f18b8/b/build" --config Release -- -j24
+[1/16] Building C object CMakeFiles/zlib.dir/Release/gzclose.c.obj
+[2/16] Building C object CMakeFiles/zlib.dir/Release/zutil.c.obj
+[3/16] Building C object CMakeFiles/zlib.dir/Release/compress.c.obj
+[4/16] Building C object CMakeFiles/zlib.dir/Release/uncompr.c.obj
+[5/16] Building C object CMakeFiles/zlib.dir/Release/adler32.c.obj
+[6/16] Building C object CMakeFiles/zlib.dir/Release/crc32.c.obj
+[7/16] Building C object CMakeFiles/zlib.dir/Release/inftrees.c.obj
+[8/16] Building C object CMakeFiles/zlib.dir/Release/inffast.c.obj
+[9/16] Building C object CMakeFiles/zlib.dir/Release/gzwrite.c.obj
+[10/16] Building C object CMakeFiles/zlib.dir/Release/gzread.c.obj
+[11/16] Building C object CMakeFiles/zlib.dir/Release/gzlib.c.obj
+[12/16] Building C object CMakeFiles/zlib.dir/Release/infback.c.obj
+[13/16] Building C object CMakeFiles/zlib.dir/Release/trees.c.obj
+[14/16] Building C object CMakeFiles/zlib.dir/Release/inflate.c.obj
+[15/16] Building C object CMakeFiles/zlib.dir/Release/deflate.c.obj
+[16/16] Linking C static library Release/libz.a
+
+zlib/1.2.13: Package '09b09ac0f270c2f8bb2a6716c0e57b1983c1682d' built
+zlib/1.2.13: Build folder /home/chipc/.conan2/p/b/zlibe26abdd4f18b8/b/build
+zlib/1.2.13: Generating the package
+zlib/1.2.13: Packaging in folder /home/chipc/.conan2/p/b/zlibe26abdd4f18b8/p
+zlib/1.2.13: Calling package()
+zlib/1.2.13: Running CMake.install()
+zlib/1.2.13: RUN: cmake --install "/home/chipc/.conan2/p/b/zlibe26abdd4f18b8/b/build" --config Release --prefix "/home/chipc/.conan2/p/b/zlibe26abdd4f18b8/p"
+-- Installing: /home/chipc/.conan2/p/b/zlibe26abdd4f18b8/p/lib/libz.a
+-- Installing: /home/chipc/.conan2/p/b/zlibe26abdd4f18b8/p/include/zconf.h
+-- Installing: /home/chipc/.conan2/p/b/zlibe26abdd4f18b8/p/include/zlib.h
+
+zlib/1.2.13: package(): Packaged 1 file: LICENSE
+zlib/1.2.13: package(): Packaged 1 '.a' file: libz.a
+zlib/1.2.13: package(): Packaged 2 '.h' files: zconf.h, zlib.h
+zlib/1.2.13: Created package revision ccf703fae42ed7daed3c99a471630f7a
+zlib/1.2.13: Package '09b09ac0f270c2f8bb2a6716c0e57b1983c1682d' created
+zlib/1.2.13: Full package reference: zlib/1.2.13#4e74ebf1361fe6fb60326f473f276eb5:09b09ac0f270c2f8bb2a6716c0e57b1983c1682d#ccf703fae42ed7daed3c99a471630f7a
+zlib/1.2.13: Package folder /home/chipc/.conan2/p/b/zlibe26abdd4f18b8/p
+WARN: deprecated: Usage of deprecated Conan 1.X features that will be removed in Conan 2.X:
+WARN: deprecated:     'cpp_info.names' used in: zlib/1.2.13
+
+======== Finalizing install (deploy, generators) ========
+conanfile.py (foo/1.0): Writing generators to /home/chipc/workspaces/conan-tricore-test/build/tc162/generators
+conanfile.py (foo/1.0): Generator 'CMakeDeps' calling 'generate()'
+conanfile.py (foo/1.0): CMakeDeps necessary find_package() and targets for your CMakeLists.txt
+    find_package(ZLIB)
+    target_link_libraries(... ZLIB::ZLIB)
+conanfile.py (foo/1.0): Calling generate()
+conanfile.py (foo/1.0): Generators folder: /home/chipc/workspaces/conan-tricore-test/build/tc162/generators
+conanfile.py (foo/1.0): CMakeToolchain generated: conan_toolchain.cmake
+conanfile.py (foo/1.0): CMakeToolchain: Preset 'conan-default' added to CMakePresets.json.
+    (cmake>=3.23) cmake --preset conan-default
+    (cmake<3.23) cmake <path> -G "Ninja Multi-Config" -DCMAKE_TOOLCHAIN_FILE=generators/conan_toolchain.cmake  -DCMAKE_POLICY_DEFAULT_CMP0091=NEW
+conanfile.py (foo/1.0): CMakeToolchain generated: /home/chipc/workspaces/conan-tricore-test/build/tc162/generators/CMakePresets.json
+conanfile.py (foo/1.0): Generating aggregated env files
+conanfile.py (foo/1.0): Generated aggregated env files: ['conanbuild.sh', 'conanrun.sh']
+Install finished successfully
+
+======== Input profiles ========
+Profile host:
+[settings]
+arch=tc162
+build_type=Debug
+compiler=gcc
+compiler.cppstd=20
+compiler.libcxx=libstdc++11
+compiler.version=11
+os=baremetal
+[options]
+*:fPIC=False
+*:shared=False
+[conf]
+tools.build:compiler_executables={'c': 'tricore-elf-gcc', 'cpp': 'tricore-elf-g++'}
+tools.cmake.cmake_layout:build_folder=build/tc162
+tools.cmake.cmaketoolchain:generator=Ninja Multi-Config
+
+Profile build:
+[settings]
+arch=x86_64
+build_type=Release
+compiler=gcc
+compiler.cppstd=gnu17
+compiler.libcxx=libstdc++11
+compiler.version=11
+os=Linux
+
+
+======== Computing dependency graph ========
+Graph root
+    conanfile.py (foo/1.0): /home/chipc/workspaces/conan-tricore-test/conanfile.py
+Requirements
+    zlib/1.2.13#4e74ebf1361fe6fb60326f473f276eb5 - Cache
+
+======== Computing necessary packages ========
+zlib/1.2.13: Forced build from source
+Requirements
+    zlib/1.2.13#4e74ebf1361fe6fb60326f473f276eb5:c00988529b01a35aed6fcb52532984f90de7cd08 - Build
+
+======== Installing packages ========
+
+-------- Installing package zlib/1.2.13 (1 of 1) --------
+zlib/1.2.13: Building from source
+zlib/1.2.13: Package zlib/1.2.13:c00988529b01a35aed6fcb52532984f90de7cd08
+zlib/1.2.13: Copying sources to build folder
+zlib/1.2.13: Building your package in /home/chipc/.conan2/p/b/zlib71d1b5b8943b9/b
+zlib/1.2.13: Calling generate()
+zlib/1.2.13: Generators folder: /home/chipc/.conan2/p/b/zlib71d1b5b8943b9/b/build/generators
+zlib/1.2.13: CMakeToolchain generated: conan_toolchain.cmake
+zlib/1.2.13: CMakeToolchain generated: /home/chipc/.conan2/p/b/zlib71d1b5b8943b9/b/build/generators/CMakePresets.json
+zlib/1.2.13: CMakeToolchain generated: /home/chipc/.conan2/p/b/zlib71d1b5b8943b9/b/src/CMakeUserPresets.json
+zlib/1.2.13: Generating aggregated env files
+zlib/1.2.13: Generated aggregated env files: ['conanbuild.sh', 'conanrun.sh']
+zlib/1.2.13: Calling build()
+zlib/1.2.13: Apply patch (conan): separate static/shared builds, disable debug suffix, disable building examples
+zlib/1.2.13: Running CMake.configure()
+zlib/1.2.13: RUN: cmake -G "Ninja Multi-Config" -DCMAKE_TOOLCHAIN_FILE="generators/conan_toolchain.cmake" -DCMAKE_INSTALL_PREFIX="/home/chipc/.conan2/p/b/zlib71d1b5b8943b9/p" -DCMAKE_POLICY_DEFAULT_CMP0091="NEW" "/home/chipc/.conan2/p/b/zlib71d1b5b8943b9/b/src"
+CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+-- Using Conan toolchain: /home/chipc/.conan2/p/b/zlib71d1b5b8943b9/b/build/generators/conan_toolchain.cmake
+-- Conan toolchain: Setting CMAKE_POSITION_INDEPENDENT_CODE=OFF (options.fPIC)
+-- Conan toolchain: Setting BUILD_SHARED_LIBS = OFF
+-- The C compiler identification is GNU 11.3.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /home/chipc/.conan2/p/b/tricoe43a847349e11/p/tricore-elf/bin/tricore-elf-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for stddef.h
+-- Looking for stddef.h - found
+-- Check size of off64_t
+-- Check size of off64_t - failed
+-- Looking for fseeko
+-- Looking for fseeko - found
+-- Looking for unistd.h
+-- Looking for unistd.h - found
+-- Renaming
+--     /home/chipc/.conan2/p/b/zlib71d1b5b8943b9/b/src/zconf.h
+-- to 'zconf.h.included' because this file is included with zlib
+-- but CMake generates it automatically in the build directory.
+-- Configuring done (0.6s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/chipc/.conan2/p/b/zlib71d1b5b8943b9/b/build
+
+zlib/1.2.13: Running CMake.build()
+zlib/1.2.13: RUN: cmake --build "/home/chipc/.conan2/p/b/zlib71d1b5b8943b9/b/build" --config Debug -- -j24
+[1/16] Building C object CMakeFiles/zlib.dir/Debug/compress.c.obj
+[2/16] Building C object CMakeFiles/zlib.dir/Debug/zutil.c.obj
+[3/16] Building C object CMakeFiles/zlib.dir/Debug/uncompr.c.obj
+[4/16] Building C object CMakeFiles/zlib.dir/Debug/gzclose.c.obj
+[5/16] Building C object CMakeFiles/zlib.dir/Debug/inffast.c.obj
+[6/16] Building C object CMakeFiles/zlib.dir/Debug/adler32.c.obj
+[7/16] Building C object CMakeFiles/zlib.dir/Debug/inftrees.c.obj
+[8/16] Building C object CMakeFiles/zlib.dir/Debug/crc32.c.obj
+[9/16] Building C object CMakeFiles/zlib.dir/Debug/gzwrite.c.obj
+[10/16] Building C object CMakeFiles/zlib.dir/Debug/gzlib.c.obj
+[11/16] Building C object CMakeFiles/zlib.dir/Debug/gzread.c.obj
+[12/16] Building C object CMakeFiles/zlib.dir/Debug/infback.c.obj
+[13/16] Building C object CMakeFiles/zlib.dir/Debug/inflate.c.obj
+[14/16] Building C object CMakeFiles/zlib.dir/Debug/trees.c.obj
+[15/16] Building C object CMakeFiles/zlib.dir/Debug/deflate.c.obj
+[16/16] Linking C static library Debug/libz.a
+
+zlib/1.2.13: Package 'c00988529b01a35aed6fcb52532984f90de7cd08' built
+zlib/1.2.13: Build folder /home/chipc/.conan2/p/b/zlib71d1b5b8943b9/b/build
+zlib/1.2.13: Generating the package
+zlib/1.2.13: Packaging in folder /home/chipc/.conan2/p/b/zlib71d1b5b8943b9/p
+zlib/1.2.13: Calling package()
+zlib/1.2.13: Running CMake.install()
+zlib/1.2.13: RUN: cmake --install "/home/chipc/.conan2/p/b/zlib71d1b5b8943b9/b/build" --config Debug --prefix "/home/chipc/.conan2/p/b/zlib71d1b5b8943b9/p"
+-- Installing: /home/chipc/.conan2/p/b/zlib71d1b5b8943b9/p/lib/libz.a
+-- Installing: /home/chipc/.conan2/p/b/zlib71d1b5b8943b9/p/include/zconf.h
+-- Installing: /home/chipc/.conan2/p/b/zlib71d1b5b8943b9/p/include/zlib.h
+
+zlib/1.2.13: package(): Packaged 1 file: LICENSE
+zlib/1.2.13: package(): Packaged 1 '.a' file: libz.a
+zlib/1.2.13: package(): Packaged 2 '.h' files: zconf.h, zlib.h
+zlib/1.2.13: Created package revision ce92022d1707274a6766c2e73c610527
+zlib/1.2.13: Package 'c00988529b01a35aed6fcb52532984f90de7cd08' created
+zlib/1.2.13: Full package reference: zlib/1.2.13#4e74ebf1361fe6fb60326f473f276eb5:c00988529b01a35aed6fcb52532984f90de7cd08#ce92022d1707274a6766c2e73c610527
+zlib/1.2.13: Package folder /home/chipc/.conan2/p/b/zlib71d1b5b8943b9/p
+WARN: deprecated: Usage of deprecated Conan 1.X features that will be removed in Conan 2.X:
+WARN: deprecated:     'cpp_info.names' used in: zlib/1.2.13
+
+======== Finalizing install (deploy, generators) ========
+conanfile.py (foo/1.0): Writing generators to /home/chipc/workspaces/conan-tricore-test/build/tc162/generators
+conanfile.py (foo/1.0): Generator 'CMakeDeps' calling 'generate()'
+conanfile.py (foo/1.0): CMakeDeps necessary find_package() and targets for your CMakeLists.txt
+    find_package(ZLIB)
+    target_link_libraries(... ZLIB::ZLIB)
+conanfile.py (foo/1.0): Calling generate()
+conanfile.py (foo/1.0): Generators folder: /home/chipc/workspaces/conan-tricore-test/build/tc162/generators
+conanfile.py (foo/1.0): CMakeToolchain generated: conan_toolchain.cmake
+conanfile.py (foo/1.0): CMakeToolchain: Preset 'conan-default' added to CMakePresets.json.
+    (cmake>=3.23) cmake --preset conan-default
+    (cmake<3.23) cmake <path> -G "Ninja Multi-Config" -DCMAKE_TOOLCHAIN_FILE=generators/conan_toolchain.cmake  -DCMAKE_POLICY_DEFAULT_CMP0091=NEW
+conanfile.py (foo/1.0): CMakeToolchain generated: /home/chipc/workspaces/conan-tricore-test/build/tc162/generators/CMakePresets.json
+conanfile.py (foo/1.0): Generating aggregated env files
+conanfile.py (foo/1.0): Generated aggregated env files: ['conanbuild.sh', 'conanrun.sh']
+Install finished successfully
+-------------------------------------------------
+-- Running CMake workflow for 'tc162'       --
+Executing workflow step 1 of 3: configure preset "tc162"
+
+Preset CMake variables:
+
+  CMAKE_PROJECT_TOP_LEVEL_INCLUDES="/home/chipc/workspaces/conan-tricore-test/cmake/conan_provider.cmake"
+  CMAKE_TOOLCHAIN_FILE:FILEPATH="/home/chipc/workspaces/conan-tricore-test/build/tc162/generators/conan_toolchain.cmake"
+  CONAN_HOST_PROFILE="/home/chipc/workspaces/conan-tricore-test/profiles/tc162"
+
+-- Using Conan toolchain: /home/chipc/workspaces/conan-tricore-test/build/tc162/generators/conan_toolchain.cmake
+-- Conan toolchain: C++ Standard 20 with extensions OFF
+-- The C compiler identification is GNU 11.3.1
+-- The CXX compiler identification is GNU 11.3.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /home/chipc/.conan2/p/b/tricoe43a847349e11/p/tricore-elf/bin/tricore-elf-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /home/chipc/.conan2/p/b/tricoe43a847349e11/p/tricore-elf/bin/tricore-elf-g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- CMake-Conan: first find_package() found. Installing dependencies with Conan
+-- CMake-Conan: Checking if a default profile exists
+/home/chipc/.conan2/profiles/default
+-- CMake-Conan: Installing both Debug and Release
+-- CMake-Conan: conan install /home/chipc/workspaces/conan-tricore-test -of=/home/chipc/workspaces/conan-tricore-test/build/tc162/conan --profile:host=/home/chipc/workspaces/conan-tricore-test/profiles/tc162;--profile:build=default;-s;build_type=Release;--build=missing
+
+======== Input profiles ========
+Profile host:
+[settings]
+arch=tc162
+build_type=Release
+compiler=gcc
+compiler.cppstd=20
+compiler.libcxx=libstdc++11
+compiler.version=11
+os=baremetal
+[options]
+*:fPIC=False
+*:shared=False
+[conf]
+tools.build:compiler_executables={'c': 'tricore-elf-gcc', 'cpp': 'tricore-elf-g++'}
+tools.cmake.cmake_layout:build_folder=build/tc162
+tools.cmake.cmaketoolchain:generator=Ninja Multi-Config
+
+Profile build:
+[settings]
+arch=x86_64
+build_type=Release
+compiler=gcc
+compiler.cppstd=gnu17
+compiler.libcxx=libstdc++11
+compiler.version=11
+os=Linux
+
+
+======== Computing dependency graph ========
+Graph root
+    conanfile.py (foo/1.0): /home/chipc/workspaces/conan-tricore-test/conanfile.py
+Requirements
+    zlib/1.2.13#4e74ebf1361fe6fb60326f473f276eb5 - Cache
+
+======== Computing necessary packages ========
+Requirements
+    zlib/1.2.13#4e74ebf1361fe6fb60326f473f276eb5:09b09ac0f270c2f8bb2a6716c0e57b1983c1682d#ccf703fae42ed7daed3c99a471630f7a - Cache
+
+======== Installing packages ========
+zlib/1.2.13: Already installed! (1 of 1)
+WARN: deprecated: Usage of deprecated Conan 1.X features that will be removed in Conan 2.X:
+WARN: deprecated:     'cpp_info.names' used in: zlib/1.2.13
+
+======== Finalizing install (deploy, generators) ========
+conanfile.py (foo/1.0): Writing generators to /home/chipc/workspaces/conan-tricore-test/build/tc162/conan/build/tc162/generators
+conanfile.py (foo/1.0): Generator 'CMakeDeps' calling 'generate()'
+conanfile.py (foo/1.0): CMakeDeps necessary find_package() and targets for your CMakeLists.txt
+    find_package(ZLIB)
+    target_link_libraries(... ZLIB::ZLIB)
+conanfile.py (foo/1.0): Calling generate()
+conanfile.py (foo/1.0): Generators folder: /home/chipc/workspaces/conan-tricore-test/build/tc162/conan/build/tc162/generators
+conanfile.py (foo/1.0): CMakeToolchain generated: conan_toolchain.cmake
+conanfile.py (foo/1.0): CMakeToolchain: Preset 'conan-default' added to CMakePresets.json.
+    (cmake>=3.23) cmake --preset conan-default
+    (cmake<3.23) cmake <path> -G "Ninja Multi-Config" -DCMAKE_TOOLCHAIN_FILE=generators/conan_toolchain.cmake  -DCMAKE_POLICY_DEFAULT_CMP0091=NEW
+conanfile.py (foo/1.0): CMakeToolchain generated: /home/chipc/workspaces/conan-tricore-test/build/tc162/conan/build/tc162/generators/CMakePresets.json
+conanfile.py (foo/1.0): Generating aggregated env files
+conanfile.py (foo/1.0): Generated aggregated env files: ['conanbuild.sh', 'conanrun.sh']
+Install finished successfully
+-- CMake-Conan: CONAN_GENERATORS_FOLDER=/home/chipc/workspaces/conan-tricore-test/build/tc162/conan/build/tc162/generators
+-- CMake-Conan: CONANFILE=/home/chipc/workspaces/conan-tricore-test/conanfile.py (foo/1.0)
+-- CMake-Conan: conan install /home/chipc/workspaces/conan-tricore-test -of=/home/chipc/workspaces/conan-tricore-test/build/tc162/conan --profile:host=/home/chipc/workspaces/conan-tricore-test/profiles/tc162;--profile:build=default;-s;build_type=Debug;--build=missing
+
+======== Input profiles ========
+Profile host:
+[settings]
+arch=tc162
+build_type=Debug
+compiler=gcc
+compiler.cppstd=20
+compiler.libcxx=libstdc++11
+compiler.version=11
+os=baremetal
+[options]
+*:fPIC=False
+*:shared=False
+[conf]
+tools.build:compiler_executables={'c': 'tricore-elf-gcc', 'cpp': 'tricore-elf-g++'}
+tools.cmake.cmake_layout:build_folder=build/tc162
+tools.cmake.cmaketoolchain:generator=Ninja Multi-Config
+
+Profile build:
+[settings]
+arch=x86_64
+build_type=Release
+compiler=gcc
+compiler.cppstd=gnu17
+compiler.libcxx=libstdc++11
+compiler.version=11
+os=Linux
+
+
+======== Computing dependency graph ========
+Graph root
+    conanfile.py (foo/1.0): /home/chipc/workspaces/conan-tricore-test/conanfile.py
+Requirements
+    zlib/1.2.13#4e74ebf1361fe6fb60326f473f276eb5 - Cache
+
+======== Computing necessary packages ========
+Requirements
+    zlib/1.2.13#4e74ebf1361fe6fb60326f473f276eb5:c00988529b01a35aed6fcb52532984f90de7cd08#ce92022d1707274a6766c2e73c610527 - Cache
+
+======== Installing packages ========
+zlib/1.2.13: Already installed! (1 of 1)
+WARN: deprecated: Usage of deprecated Conan 1.X features that will be removed in Conan 2.X:
+WARN: deprecated:     'cpp_info.names' used in: zlib/1.2.13
+
+======== Finalizing install (deploy, generators) ========
+conanfile.py (foo/1.0): Writing generators to /home/chipc/workspaces/conan-tricore-test/build/tc162/conan/build/tc162/generators
+conanfile.py (foo/1.0): Generator 'CMakeDeps' calling 'generate()'
+conanfile.py (foo/1.0): CMakeDeps necessary find_package() and targets for your CMakeLists.txt
+    find_package(ZLIB)
+    target_link_libraries(... ZLIB::ZLIB)
+conanfile.py (foo/1.0): Calling generate()
+conanfile.py (foo/1.0): Generators folder: /home/chipc/workspaces/conan-tricore-test/build/tc162/conan/build/tc162/generators
+conanfile.py (foo/1.0): CMakeToolchain generated: conan_toolchain.cmake
+conanfile.py (foo/1.0): CMakeToolchain: Preset 'conan-default' added to CMakePresets.json.
+    (cmake>=3.23) cmake --preset conan-default
+    (cmake<3.23) cmake <path> -G "Ninja Multi-Config" -DCMAKE_TOOLCHAIN_FILE=generators/conan_toolchain.cmake  -DCMAKE_POLICY_DEFAULT_CMP0091=NEW
+conanfile.py (foo/1.0): CMakeToolchain generated: /home/chipc/workspaces/conan-tricore-test/build/tc162/conan/build/tc162/generators/CMakePresets.json
+conanfile.py (foo/1.0): Generating aggregated env files
+conanfile.py (foo/1.0): Generated aggregated env files: ['conanbuild.sh', 'conanrun.sh']
+Install finished successfully
+-- CMake-Conan: CONAN_GENERATORS_FOLDER=/home/chipc/workspaces/conan-tricore-test/build/tc162/conan/build/tc162/generators
+-- CMake-Conan: CONANFILE=/home/chipc/workspaces/conan-tricore-test/conanfile.py (foo/1.0)
+-- Conan: Target declared 'ZLIB::ZLIB'
+-- Configuring done (0.9s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/chipc/workspaces/conan-tricore-test/build/tc162
+
+Executing workflow step 2 of 3: build preset "tc162-debug"
+
+[1/2] Building CXX object CMakeFiles/foo.dir/Debug/src/foo.cpp.obj
+[2/2] Linking CXX static library Debug/libfoo.a
+
+Executing workflow step 3 of 3: build preset "tc162-release"
+
+[1/2] Building CXX object CMakeFiles/foo.dir/Release/src/foo.cpp.obj
+[2/2] Linking CXX static library Release/libfoo.a
+
+-------------------------------------------------
+-- ELF Header for 'foo.cpp.obj'                --
+ELF Header:
+  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF32
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              REL (Relocatable file)
+  Machine:                           Infineon Tricore
+  Version:                           0x1
+  Entry point address:               0x0
+  Start of program headers:          0 (bytes into file)
+  Start of section headers:          2392 (bytes into file)
+  Flags:                             0x800000, TC1.3.1
+  Size of this header:               52 (bytes)
+  Size of program headers:           0 (bytes)
+  Number of program headers:         0
+  Size of section headers:           40 (bytes)
+  Number of section headers:         21
+  Section header string table index: 20
+
+-------------------------------------------------
+-- ELF Header for 'foo.cpp.obj'                --
+ELF Header:
+  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF32
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              REL (Relocatable file)
+  Machine:                           Infineon Tricore
+  Version:                           0x1
+  Entry point address:               0x0
+  Start of program headers:          0 (bytes into file)
+  Start of section headers:          2392 (bytes into file)
+  Flags:                             0x200000, TC1.6.1
+  Size of this header:               52 (bytes)
+  Size of program headers:           0 (bytes)
+  Number of program headers:         0
+  Size of section headers:           40 (bytes)
+  Number of section headers:         21
+  Section header string table index: 20
+
+-------------------------------------------------
+-- ELF Header for 'foo.cpp.obj'                --
+ELF Header:
+  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF32
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              REL (Relocatable file)
+  Machine:                           Infineon Tricore
+  Version:                           0x1
+  Entry point address:               0x0
+  Start of program headers:          0 (bytes into file)
+  Start of section headers:          2392 (bytes into file)
+  Flags:                             0x100000, TC1.6.2
+  Size of this header:               52 (bytes)
+  Size of program headers:           0 (bytes)
+  Number of program headers:         0
+  Size of section headers:           40 (bytes)
+  Number of section headers:         21
+  Section header string table index: 20
+

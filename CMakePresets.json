@@ -10,22 +10,120 @@
     },
     "configurePresets": [
         {
-            "name": "default",
+            "name": "base",
             "generator": "Ninja Multi-Config",
-            "toolchainFile": "${sourceDir}/build/conan_toolchain.cmake",
-            "binaryDir": "${sourceDir}/build"
+            "binaryDir": "${sourceDir}/build/${presetName}",
+            "toolchainFile": "${sourceDir}/build/${presetName}/generators/conan_toolchain.cmake",
+            "cacheVariables": {
+                "CMAKE_PROJECT_TOP_LEVEL_INCLUDES": "${sourceDir}/cmake/conan_provider.cmake",
+                "CONAN_HOST_PROFILE": "${sourceDir}/profiles/${presetName}"
+            }
+        },
+        {
+            "name": "tc162",
+            "inherits": [
+                "base"
+            ]
+        },
+        {
+            "name": "tc161",
+            "inherits": [
+                "base"
+            ]
+        },
+        {
+            "name": "tc131",
+            "inherits": [
+                "base"
+            ]
         }
     ],
     "buildPresets": [
         {
-            "name": "debug",
-            "configurePreset": "default",
+            "name": "tc162-debug",
+            "configurePreset": "tc162",
             "configuration": "Debug"
         },
         {
-            "name": "release",
-            "configurePreset": "default",
+            "name": "tc162-release",
+            "configurePreset": "tc162",
             "configuration": "Release"
+        },
+        {
+            "name": "tc161-debug",
+            "configurePreset": "tc161",
+            "configuration": "Debug"
+        },
+        {
+            "name": "tc161-release",
+            "configurePreset": "tc161",
+            "configuration": "Release"
+        },
+        {
+            "name": "tc131-debug",
+            "configurePreset": "tc131",
+            "configuration": "Debug"
+        },
+        {
+            "name": "tc131-release",
+            "configurePreset": "tc131",
+            "configuration": "Release"
+        }
+    ],
+    "workflowPresets": [
+        {
+            "name": "tc131",
+            "displayName": "Build all configurations for tc131.",
+            "steps": [
+                {
+                    "type": "configure",
+                    "name": "tc131"
+                },
+                {
+                    "type": "build",
+                    "name": "tc131-debug"
+                },
+                {
+                    "type": "build",
+                    "name": "tc131-release"
+                }
+            ]
+        },
+        {
+            "name": "tc162",
+            "displayName": "Build all configurations for tc162.",
+            "steps": [
+                {
+                    "type": "configure",
+                    "name": "tc162"
+                },
+                {
+                    "type": "build",
+                    "name": "tc162-debug"
+                },
+                {
+                    "type": "build",
+                    "name": "tc162-release"
+                }
+            ]
+        },
+        {
+            "name": "tc161",
+            "displayName": "Build all configurations for tc161.",
+            "steps": [
+                {
+                    "type": "configure",
+                    "name": "tc161"
+                },
+                {
+                    "type": "build",
+                    "name": "tc161-debug"
+                },
+                {
+                    "type": "build",
+                    "name": "tc161-release"
+                }
+            ]
         }
     ]
 }

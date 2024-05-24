@@ -1,5 +1,5 @@
 from conan import ConanFile
-from conan.tools.cmake import CMakeToolchain
+from conan.tools.cmake import CMakeToolchain, cmake_layout
 
 class FooRecipe(ConanFile):
     name = "foo"
@@ -15,6 +15,9 @@ class FooRecipe(ConanFile):
     def build_requirements(self):
         # self.requires("tricore-elf-gcc/11.3.1")
         pass
+
+    def layout(self):
+        cmake_layout(self)
 
     def generate(self):
         tc = CMakeToolchain(self)
