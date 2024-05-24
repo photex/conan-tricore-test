@@ -1,0 +1,16 @@
+[settings]
+os=baremetal
+arch=tc162
+compiler=gcc
+compiler.version=11
+compiler.cppstd=20
+compiler.libcxx=libstdc++11
+
+[conf]
+tools.build:compiler_executables={"c":"tricore-elf-gcc","cpp":"tricore-elf-g++"}
+
+# I have to do this, otherwise zlib tries to use fPIC which isn't supported by tricore.
+[options]
+*:shared=False
+*:fPIC=False
+
